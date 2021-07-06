@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  /*  */
+  background-color: hsl(210, 46%, 95%);
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+}
+
+#component-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+#component-wrapper h1,
+#component-wrapper h2,
+#component-wrapper h3,
+#component-wrapper h4,
+#component-wrapper h5,
+#component-wrapper h6 {
+  color: hsl(217, 19%, 35%);
+  font-weight: 700;
+}
+#component-wrapper p {
+  font-weight: 500;
+  color: hsl(214, 17%, 51%);
+  line-height: 22px;
+}
+
+#component {
+  /* Regular Styling */
+  background-color: white;
+  border-radius: 15px;
+  width: 90%;
+  margin-bottom: 1.5em;
+}
+
+#component #component-image img {
+  max-width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#component #component-copy {
+  padding: 2em;
+}
+#component #component-copy h2 {
+  padding-bottom: 0.5em;
+}
+
+#component #component-info .component-info-social {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em 1em 2em;
+}
+
+#component
+  #component-info
+  .component-info-social
+  .component-info-social-thumbnail {
+  flex-basis: 10%;
+  padding-right: 3%;
+}
+
+#component
+  #component-info
+  .component-info-social
+  .component-info-social-thumbnail
+  img {
+  border-radius: 50%;
+  width: 50px;
+  min-width: 100%;
+}
+
+#component #component-info .component-info-social .component-info-social-copy {
+  flex-basis: 90%;
+}
+
+#component
+  #component-info
+  .component-info-social
+  .component-info-social-button
+  button,
+#component
+  #component-info
+  .component-info-social-alt
+  .component-info-social-button
+  button {
+  background-color: hsl(210, 46%, 95%);
+  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: hsl(212, 23%, 69%);
+  font-size: 2px;
+  font-weight: 700;
+}
+
+#component
+  #component-info
+  .component-info-social
+  .component-info-social-button
+  button:hover,
+#component
+  #component-info
+  .component-info-social-alt
+  .component-info-social-button
+  button:hover {
+  background-color: hsl(212, 23%, 69%);
+  color: hsl(210, 46%, 95%);
+  cursor: pointer;
+}
+
+#component #component-info .component-info-social-alt,
+#component #component-info.collapsed .component-info-social {
+  visibility: none;
+  opacity: 0;
+  position: absolute;
+}
+
+#component #component-info.collapsed .component-info-social-alt {
+  background-color: hsl(217, 19%, 35%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em 2em;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  transition: opacity 250ms ease-in;
+}
+
+#component #component-info .component-info-social-alt .share-text h2 {
+  text-transform: uppercase;
+  color: hsl(212, 23%, 69%);
+  font-weight: 100;
+  font-size: 16px;
+  letter-spacing: 5px;
+}
+
+@media (min-width: 768px) {
+  #component {
+    display: grid;
+    grid-template-areas:
+      "image copy"
+      "image  info";
+    max-width: 1000px;
+    width: 90%;
+  }
+
+  #component #component-image {
+    grid-area: image;
+  }
+  #component #component-copy {
+    grid-area: copy;
+  }
+  #component #component-info {
+    grid-area: info;
+    position: relative;
+  }
+
+  #component #component-info.collapsed .component-info-social {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+  }
+  #component #component-info.collapsed .component-info-social-alt {
+    width: 40%;
+    padding: 0.75em 1em;
+    border-radius: 15px;
+    position: absolute;
+    top: -50%;
+    left: 70%;
+  }
+  #component #component-info.collapsed .component-info-social-alt:after {
+    content: "";
+    position: absolute;
+    border-left: 15px solid #0000;
+    border-right: 15px solid #0000;
+    border-top: 15px solid #48556a;
+    top: 100%;
+    left: 48%;
+  }
+
+  #component
+    #component-info.collapsed
+    .component-info-social-alt
+    .component-info-social-button {
+    display: none;
+  }
+  #component #component-image img {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 15px;
+    min-height: 100%;
+  }
+  #component #component-info .component-info-social-alt .share-text h2 {
+    font-size: 13px;
+  }
+}
